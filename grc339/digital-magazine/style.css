@@ -27,15 +27,15 @@ h2 {
     /* font-size: 2.5em; */
 }
 
-.mainstory h2 {
+section.mainstory h2 {
     font-size: 2.5em;
 }
 
-.secondary h2 {
+section.secondary h2 {
     font-size: 1em;
 }
 
-.tertiary h2 {
+section.tertiary h2 {
     /* margin: 0.5em; */
     margin-bottom: 1em;
     border-top: solid 1px; color: rgb(68, 99, 135);
