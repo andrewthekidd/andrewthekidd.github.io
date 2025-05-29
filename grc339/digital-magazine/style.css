@@ -46,6 +46,9 @@ body {
 	min-height: 100vh;
 	max-width: 100%;
     background-color: rgb(39, 46, 47);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }   
 
 img {
@@ -78,9 +81,34 @@ div.container {
     max-width: 35em;
 }
 
+div.gallery-container {
+    margin: auto;
+    max-width: 50em;
+    background-color: transparent;
+}
+
+div.newsletter-container {
+    margin:auto;
+    max-width: 50em;
+}
+
 main {
     background-color: rgba(233,236,235, .3);
     backdrop-filter: blur(0.25em);
+}
+
+main.photopage {
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    padding-bottom: calc(66% + 5em);
+    background-color: transparent;
+    max-width: auto;
+}
+
+main.photopage figure img {
+    max-width: 100%;
 }
 
 article {
@@ -117,6 +145,17 @@ section.tertiary h2 {
     font-size: 1.15em;
 }
 
+figure.gallery {
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    background-color: transparent;
+}
+
 figcaption {
     font-style: italic;
     margin-bottom: 1em;
@@ -141,13 +180,144 @@ p {
     font-family: Poppins, Regular;
     color: rgb(233,236,235);
     padding-bottom: 1em;
-
 }
 
 a {
     text-decoration: none;
     color: rgb(233,236,235)
 }
+
+input:nth-of-type(1):checked ~ main figure:nth-of-type(1),
+input:nth-of-type(2):checked ~ main figure:nth-of-type(2),
+input:nth-of-type(3):checked ~ main figure:nth-of-type(3),
+input:nth-of-type(4):checked ~ main figure:nth-of-type(4){
+    opacity: 1;
+}
+
+nav.photos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.2em;
+}
+
+.gallery-container input {
+    display: none;
+}
+
+button {
+    margin-top: 1em;
+}
+
+.radio {
+    margin: 1em;
+}
+
+section.option:hover {
+    transform: scale(1.05);
+}
+
+section.tertiary:hover {
+    transform: scale(1.05);
+}
+
+section.option h2 {
+    font-size: 2em;
+    margin: auto;
+}
+
+section.personal-info {
+    background-color: rgb(39, 46, 47);
+}
+
+section.personal-info h2 {
+    font-size: 2em;
+}
+
+section.option p {
+    flex-wrap: wrap;
+    margin-left: 0;
+}
+
+section.personal-info ul li input[type="text"],
+section ul li input[type="email"],
+section ul li input[type="tel"],
+section ul li select {
+	flex: 2 1 32em;
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+section.personal-info {
+    grid-column: 1 / 4;
+    padding: 1rem;
+}
+
+h3 {
+	margin-bottom: 0;
+}
+
+ul li {
+	list-style-type: none;
+    border-top: none;
+    color: rgb(233,236,235);
+}
+
+.personal-info ul li {
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 1em;
+}
+
+.personal-info ul {
+	padding-left: 0;
+}
+
+.personal-info ul li label {
+	flex: 0 0 8em;
+}
+
+section {
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.order ul li {
+flex: 1 0 15em;
+}
+
+.order ul {
+	padding-left: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.method ul {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0em;
+}
+
+.method ul li{
+	flex: 1 0 15em;
+}
+
+section p {
+	margin-top: 0;
+}
+
+textarea {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	height: 6em;
+	background: #fcfcfc;
+	border: 1px solid #e8e8e8;
+	padding: 0.4em;
+	font-family: poppins;
+	/* color: #777; */
+	margin: auto;
+	}
+
 
 footer {
     color: rgb(233,236,235);
@@ -219,6 +389,17 @@ footer {
         grid-template-columns: 3fr 1fr;
 
         background-color: transparent;
+    }
+
+    div.newsletter-container main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+        gap: 1rem;
+    }
+
+    section.option {
+      padding: 1rem;
     }
 
     main {
@@ -324,6 +505,17 @@ footer {
         border-top: 0px;
     }
 
+    section.option {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 1em;
+    }
+
+    section.personal-info {
+        background-color: transparent;
+    }
+
+
     img.rounded {
         border-radius: 1em;
     }
@@ -345,5 +537,17 @@ footer {
         backdrop-filter: blur(.25em);
         box-shadow: 0 0.25em 0.625em;
     }
+
+    main.photopage {
+    padding-bottom: calc(66% + 4em);
+    }
+
+}
+
+@media only screen and (min-width: 40em) {
+
+  div.container {
+    margin: auto;
+	}
 
 }
